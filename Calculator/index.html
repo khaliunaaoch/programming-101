@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: white;
+            transition: background-color .2s ease;
+        }
+
+        .grid {
+            display: grid;
+            width: 280px;
+            height: 280px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1px;
+            background: black;
+        }
+
+        .cell {
+            background: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 48px;
+        }
+
+        
+        
+    
+    </style>
+
+
+    <div>
+        <div class="grid">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var cells = document.body.getElementsByClassName("cell");
+        console.log(cells);
+        var isPlayerOne = true;
+        var grid = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ];
+        
+        for (var i=0; i<cells.length; i+=1) {
+            let cell = cells[i];
+            let h = i;
+
+            cell.addEventListener("click", function() {
+                var row = parseInt(h / 3);
+                var col = h % 3;
+
+                // cell already occupied!
+                if (grid[row][col] !== "") return;
+
+                var symbol = isPlayerOne ? "X" : "O";
+                cell.innerHTML = symbol;
+                grid[row][col] = symbol;
+                isPlayerOne = !isPlayerOne;
+
+                // check if player won
+                if (grid[row][0])
+            });
+        }
+
+    </script>
+
+
+
+    <!-- <script>
+        var h1 = document.body.getElementsByTagName("h1")[0];
+        var colors = ["red", "green", "blue", "orange", "pink", "yellow"];
+        var i = 0;
+
+        function h1Clicked() {
+            document.body.style.backgroundColor = colors[i];
+            h1.innerHTML = colors[i];
+            i = (i + 1) % colors.length;
+        }
+        
+        h1.addEventListener("click", h1Clicked);
+    </script> -->
+</body>
+</html>

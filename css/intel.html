@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-color: orange; */
+        }
+        .first-block {
+            background-color: orange;
+        }
+        .second-block {
+            background-color: red;
+            width: 400px;
+            height: 200px;
+        }
+        .third-block {
+            background-color: green;
+            width: 400px;
+            text-align: center;
+        }
+        .fourth-block {
+            position: absolute;
+            width: 200px;
+            right: 0;
+            bottom: 0;
+            background-color: #eee;
+        }
+        .fifth-block {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            transition: all 2s ease-in;
+        }
+        .fifth-block:hover {
+            background-color: red;
+            width: 400px;
+        }
+        .sixth-block {
+            background-color: #aaa;
+        }
+        .seventh-block {
+            background-color: #aaa;
+            display: inline-block;
+        }
+        .eighth-block {
+            background-color: #eee;
+            display: inline-block;
+            padding: 32px;
+            border: 8px solid blue;
+            margin: 32px;
+        }
+        .box {
+            display: inline-block;
+            width: 200px;
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, .2);
+        }
+        .box-parent {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @media all and (max-width: 600px) {
+            .box-parent {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .menu {
+            padding: 64px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            top: -100vh;
+            width: 100vw;
+            height: 100vh;
+            background-color: pink;
+            transition: top .2s ease;
+        }
+
+        .menu.opened {
+            top: 0;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <button>show menu</button>
+
+    <div class="menu">
+        <button>close menu</button>
+        <ul>
+            <li>Home</li>
+            <li>Shop</li>
+            <li>Blog</li>
+        </ul>
+    </div>
+
+    <script>
+        var showBtn = document.getElementsByTagName("button")[0];
+        var closeBtn = document.getElementsByTagName("button")[1];
+        var menu = document.getElementsByClassName("menu")[0];
+
+        showBtn.addEventListener("click", () => {
+            menu.classList.toggle("opened", true);
+        });
+        
+        closeBtn.addEventListener("click", () => {
+            menu.classList.toggle("opened", false);
+        });
+    </script>
+
+    <div class="first-block">
+        
+    </div>
+    <div class="second-block">
+        A
+    </div>
+    <div>
+        <ol>
+            <li>
+                A
+            </li>
+            <li>
+                B
+            </li>
+            <li>
+                C
+            </li>
+        </ol>
+    </div>
+    <div class="third-block">
+        Center
+    </div>
+    <div class="fourth-block">
+        Absolute
+    </div>
+    <h1>
+        H1 Title
+    </h1>
+    <div class="fifth-block">
+        Hover me!
+    </div>
+    <div class="sixth-block">
+        Divs are block-elements, so they stretch
+    </div>
+    <div class="seventh-block">
+        inline blocks adjust to the content 
+    </div>
+    <div class="eighth-block">
+        the box model
+    </div>
+
+   <div class="box-parent">
+    <div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa aut consectetur est perferendis quod quae laudantium, delectus deserunt non, ab nam id tenetur illo provident rerum qui. Repellendus, ipsum mollitia!
+    </div>
+    <div class="box">
+        Potatoes
+    </div>
+    <div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa aut consectetur est perferendis quod quae laudantium, delectus deserunt non, ab nam id tenetur illo provident rerum qui. Repellendus, ipsum mollitia!
+    </div><div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa aut consectetur est perferendis quod quae laudantium, delectus deserunt non, ab nam id tenetur illo provident rerum qui. Repellendus, ipsum mollitia!
+    </div>
+   </div>
+</body>
+</html>
